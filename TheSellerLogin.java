@@ -553,6 +553,7 @@ public class TheSellerLogin extends JFrame {
     private JPanel jPanel4;
     private JPanel jPanel5;
   
+    //This disrespecto to the pawa of regex needs to be fixed
     private boolean containsLetters(String word) {
 	for (int i = 0; i < word.length(); i++) {
 	    String character = String.valueOf(word.charAt(i));
@@ -586,6 +587,7 @@ public class TheSellerLogin extends JFrame {
   
     private void jTextField4ActionPerformed(ActionEvent evt) {}
   
+    // Sales method
     private void jButton9ActionPerformed(ActionEvent evt) {
 	String userID = jTextField4.getText().replaceAll(" ", "");
 	String sales = jTextField3.getText().replaceAll(" ", "");
@@ -603,9 +605,9 @@ public class TheSellerLogin extends JFrame {
 		jPanel5.setVisible(false);
 		cleanJPanel5();
 		error = 1;
-	    } else if (salesInt < 65336) {
+	    } else if (salesInt < 0) {
 		jPanel3.setVisible(true);
-		jLabel3.setText("Sales cannot be less favourable");
+		jLabel3.setText("Sales cannot be negative");
 		jPanel5.setVisible(false);
 		cleanJPanel5();
 		error = 1;
