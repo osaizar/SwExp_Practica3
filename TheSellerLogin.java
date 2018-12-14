@@ -524,78 +524,39 @@ public class TheSellerLogin
 	int UserId = results[1];
 	int passInserted = Integer.parseInt(pass);
       
-	if ((passInserted == passDB) && (UserId == 1)){
-	    //Admin login
-		jPanel1.setVisible(false);
-		jPanel4.setVisible(true);
-		cleanJPanel1();
-	    }
+	if((userId=-1) || (passDB=-1)){
+	    //The DB method sets '-1' as the default values, so if there has
+	    //been an error while searching for the username on the DB, this
+	    //case will be executed
+	    jPanel3.setVisible(true);
+	    jLabel3.setText("Invalid username");
+	    jPanel1.setVisible(false);
+	    cleanJPanel1();
+	    error = 0;
+	}
 	else if (passInserted == passDB){
-	    //Regular user login
+
 		jPanel1.setVisible(false);
-		jPanel2.setVisible(true);
+
+		if(UserId == 1){
+		    //Admin login
+		    jPanel4.setVisible(true);
+		}
+		else{
+		    //Regular user login
+		    jPanel2.setVisible(true);
+		}
+
 		cleanJPanel1();
-	    }
+	}
 	else {
 	    jPanel3.setVisible(true);
-	    jLabel3.setText("Wrong user or password");
+	    jLabel3.setText("Invalid password");
 	    jPanel1.setVisible(false);
 	    cleanJPanel1();
 	    error = 0;
 	}
     }
-
-    // if ((userID_name.equals("")) || (pass.equals(""))) {
-    //   jPanel3.setVisible(true);
-    //   jLabel3.setText("All fields should be completed");
-    //   jPanel1.setVisible(false);
-    //   cleanJPanel1();
-    //   error = 0;
-    // } else if (containsLetters(pass)) {
-    //   jPanel3.setVisible(true);
-    //   jLabel3.setText("Wrong user or password");
-    //   jPanel1.setVisible(false);
-    //   cleanJPanel1();
-    //   error = 0;
-    // } else if (pass.length() < 5) {
-    //   jPanel3.setVisible(true);
-    //   jLabel3.setText("Wrong user or password");
-    //   jPanel1.setVisible(false);
-    //   cleanJPanel1();
-    //   error = 0;
-    // } else if (pass.length() > 5)
-    // {
-    //   jPanel3.setVisible(true);
-    //   jLabel3.setText("Length exceeded. Please contact SalesAdmin");
-    //   jPanel1.setVisible(false);
-    //   cleanJPanel1();
-    //   error = 0;
-    // }
-    // else {
-    //   int[] results = dabaBase.login(userID_name);
-    //   int passDB = results[0];
-    //   int UserId = results[1];
-    //   int passInserted = Integer.parseInt(pass);
-      
-    //   if ((passInserted == passDB) && (UserId == 1))
-    //   {
-    //     jPanel1.setVisible(false);
-    //     jPanel4.setVisible(true);
-    //     cleanJPanel1();
-    //   } else if (passInserted == passDB)
-    //   {
-    //     jPanel1.setVisible(false);
-    //     jPanel2.setVisible(true);
-    //     cleanJPanel1();
-    //   }
-    //   else {
-    //     jPanel3.setVisible(true);
-    //     jLabel3.setText("Wrong user or password");
-    //     jPanel1.setVisible(false);
-    //     cleanJPanel1();
-    //     error = 0;
-    //   }
-    // }
   }
   
 
