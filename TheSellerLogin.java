@@ -553,14 +553,11 @@ public class TheSellerLogin extends JFrame {
     private JPanel jPanel4;
     private JPanel jPanel5;
 
-    //This disrespecto to the pawa of regex needs to be fixed
+    //Disrespect fixed (^w^)b
     private boolean containsLetters(String word) {
-	for (int i = 0; i < word.length(); i++) {
-	    String character = String.valueOf(word.charAt(i));
-	    if (character.matches("[a-zA-Z]")) {
-		return true;
-	    }
-	}
+        if(word.matches(".*[A-Za-z].*")){
+            return true;
+        }
 	return false;
     }
 
