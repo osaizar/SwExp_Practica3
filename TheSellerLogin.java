@@ -513,7 +513,7 @@ public class TheSellerLogin extends JFrame {
 	    int UserId = results[1];
 	    int passInserted = Integer.parseInt(pass);
 
-	    if ((userId=-1) || (passDB=-1)) {
+	    if ((userId == -1) || (passDB == -1)) {
 		//The DB method sets '-1' as the default values, so if there has
 		//been an error while searching for the username on the DB, this
 		//case will be executed
